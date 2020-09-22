@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptAlumnos" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b0fc013d-c06d-463f-a798-888dbc18102c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     alumnos.`id_documento` AS alumnos_id_documento,
+     alumnos.`nombre` AS alumnos_nombre,
+     alumnos.`ap_paterno` AS alumnos_ap_paterno,
+     alumnos.`ap_materno` AS alumnos_ap_materno
+FROM
+     `alumnos` alumnos]]>
+	</queryString>
+	<field name="alumnos_id_documento" class="java.lang.Integer"/>
+	<field name="alumnos_nombre" class="java.lang.String"/>
+	<field name="alumnos_ap_paterno" class="java.lang.String"/>
+	<field name="alumnos_ap_materno" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="fc0bf4ac-3a2d-4c68-bed8-7e74c9d33aa3" x="90" y="28" width="376" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE DE ALUMNOS - COLEGIO LA ENSEÑANZA]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="eb774b96-6af8-4d17-bdd4-a3df1e9675f5" x="0" y="0" width="143" height="20"/>
+				<textElement/>
+				<text><![CDATA[Id Documento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4699cf1e-b9f4-4b89-a20d-dabd6497d872" x="143" y="0" width="143" height="20"/>
+				<textElement/>
+				<text><![CDATA[Nombres
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a7426ebc-c913-4835-9fab-1e115ca0882b" x="286" y="0" width="143" height="20"/>
+				<textElement/>
+				<text><![CDATA[Apellido 1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="42b1b47d-9bc3-40ae-aa20-b0563ca134c1" x="429" y="0" width="143" height="20"/>
+				<textElement/>
+				<text><![CDATA[Apellido 2]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="37" splitType="Stretch">
+			<textField>
+				<reportElement uuid="57e5c369-9662-4d08-bbbd-91e08021b40f" x="0" y="0" width="143" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{alumnos_id_documento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="24097636-9127-4a38-95eb-2261a2166b9a" x="143" y="0" width="143" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{alumnos_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="36b70f10-1d07-4710-9abc-19c77f059143" x="286" y="0" width="143" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{alumnos_ap_paterno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a10d0b8f-8cf8-4542-9553-3fc6b7507a91" x="429" y="0" width="143" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{alumnos_ap_materno}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="18" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement uuid="de68ceb8-d44d-4d27-a8b7-9c8e6bab4ab2" x="234" y="11" width="80" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="aadcc314-b441-4141-bf81-ef98584729e2" x="314" y="11" width="40" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="23" splitType="Stretch"/>
+	</summary>
+</jasperReport>
